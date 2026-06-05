@@ -1,0 +1,151 @@
+{
+  "company": {
+    "name": "Brakes India Private Limited",
+    "ticker": null,
+    "exchange": "Unlisted (Private Limited)",
+    "headquarters": "Chennai, Tamil Nadu, India",
+    "founded": "1962",
+    "website": "brakesindia.com"
+  },
+  "overview": {
+    "description": "Brakes India Private Limited is India's largest brake system supplier and a global ferrous castings manufacturer, part of the TVS Group (TSF Group). Founded in 1962 and headquartered in Chennai, it serves automotive OEMs across India and exports castings globally.",
+    "bullets": [
+      {
+        "text": "Established in 1962; promoted by the TSF Group (TVS–Santhanam family), whose heritage dates to 1936. Largest brake system supplier in India.",
+        "source": { "title": "Brakes India – LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india" },
+        "confidence": "HIGH"
+      },
+      {
+        "text": "Operates three divisions: Brake Division (braking systems for passenger cars, CVs, tractors), Foundry Division (ferrous castings for global OEMs), and Polymer Division.",
+        "source": { "title": "Tata Nexarc – Brakes India Profile", "url": "https://www.tatanexarc.com/company/brakes-india-private-utn5815bra29rjq/" },
+        "confidence": "HIGH"
+      },
+      {
+        "text": "Foundry Division at Sholinghur (120km from Chennai) produces over 200,000 MT/year of safety-critical ferrous castings; also operates a foundry in Oman. Won the prestigious Deming Application Prize for TQM.",
+        "source": { "title": "Brakes India – LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india" },
+        "confidence": "HIGH"
+      },
+      {
+        "text": "Revenues exceed INR 6,500 crore per company's own LinkedIn disclosure; target of INR 10,000 crore turnover cited in press reports.",
+        "source": { "title": "Brakes India – LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india" },
+        "confidence": "MEDIUM"
+      },
+      {
+        "text": "Exports account for approximately 23% of total revenues across brake and foundry divisions, per CRISIL.",
+        "source": { "title": "ZoomInfo – Brakes India Profile (citing CRISIL)", "url": "https://www.zoominfo.com/c/brakes-india-private-ltd/372642207" },
+        "confidence": "MEDIUM"
+      },
+      {
+        "text": "Sells automotive spare parts under the TVS-Girling, TVS-Apache, and TVS-Sprinter brands in the Indian aftermarket.",
+        "source": { "title": "Brakes India – LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india" },
+        "confidence": "HIGH"
+      },
+      {
+        "text": "Employs approximately 9,588 people; CIN U35999TN1962PTC004928; balance sheet last publicly filed with ROC Chennai for FY2023 (most recent available).",
+        "source": { "title": "TheCompanyCheck – Brakes India MCA Data", "url": "https://www.thecompanycheck.com/company/brakes-india-private-limited/U35999TN1962PTC004928" },
+        "confidence": "HIGH"
+      }
+    ]
+  },
+  "financials": {
+    "currency": "INR crore",
+    "note": "Brakes India is unlisted with no investor relations site. MCA filings are paywalled. The only available figures come from company's own LinkedIn (revenue >₹6,500 cr, unaudited/undated) and third-party aggregators of uncertain methodology. No audited annual figures are publicly accessible. The table below reflects what could be verified — year-by-year breakdowns could NOT be confirmed and are not shown.",
+    "years": ["FY21", "FY22", "FY23", "FY24"],
+    "rows": [
+      {
+        "label": "Revenue",
+        "values": [null, null, null, "~₹6,500 cr+"],
+        "isPercentage": false,
+        "source": { "title": "Brakes India LinkedIn (self-disclosed)", "url": "https://in.linkedin.com/company/brakes-india" },
+        "confidence": "LOW"
+      },
+      {
+        "label": "Revenue Growth %",
+        "values": [null, null, null, null],
+        "isPercentage": true,
+        "source": null,
+        "confidence": null
+      },
+      {
+        "label": "EBITDA",
+        "values": [null, null, null, null],
+        "isPercentage": false,
+        "source": null,
+        "confidence": null
+      },
+      {
+        "label": "EBITDA Margin %",
+        "values": [null, null, null, null],
+        "isPercentage": true,
+        "source": null,
+        "confidence": null
+      },
+      {
+        "label": "Net Debt",
+        "values": [null, null, null, null],
+        "isPercentage": false,
+        "source": null,
+        "confidence": null
+      }
+    ]
+  },
+  "products": [
+    {
+      "name": "Disc & Drum Brake Systems (Passenger Vehicles)",
+      "description": "Calipers, actuation systems, drum brakes, ABS, brake valves, hose, and brake fluid for passenger cars. Supplied to Indian automotive OEMs.",
+      "source": { "title": "Tata Nexarc – Brakes India Profile", "url": "https://www.tatanexarc.com/company/brakes-india-private-utn5815bra29rjq/" },
+      "confidence": "HIGH"
+    },
+    {
+      "name": "Commercial Vehicle Brakes (S-Cam, Hydraulic, Disc, EMR)",
+      "description": "S-cam brakes, hydraulic drum brakes, disc brakes, and Electro Magnetic Retarders for trucks, buses, and CVs.",
+      "source": { "title": "Tata Nexarc – Brakes India Profile", "url": "https://www.tatanexarc.com/company/brakes-india-private-utn5815bra29rjq/" },
+      "confidence": "HIGH"
+    },
+    {
+      "name": "Ferrous Castings (Grey Iron & SG Iron)",
+      "description": "Permanent mould grey iron and SG iron castings manufactured via Disamatic high-pressure moulding process at Sholinghur and Oman facilities. Over 200,000 MT annual capacity.",
+      "source": { "title": "Brakes India – LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india" },
+      "confidence": "HIGH"
+    },
+    {
+      "name": "Aftermarket Spare Parts (TVS-Girling / TVS-Apache / TVS-Sprinter)",
+      "description": "Branded brake components sold through the Indian automotive aftermarket under three TVS sub-brands.",
+      "source": { "title": "Brakes India – LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india" },
+      "confidence": "HIGH"
+    }
+  ],
+  "clients": [
+    {
+      "name": "Maruti Suzuki",
+      "source": { "title": "ZoomInfo – Brakes India Profile", "url": "https://www.zoominfo.com/c/brakes-india-private-ltd/372642207" },
+      "confidence": "MEDIUM"
+    },
+    {
+      "name": "Hyundai India",
+      "source": { "title": "ZoomInfo – Brakes India Profile", "url": "https://www.zoominfo.com/c/brakes-india-private-ltd/372642207" },
+      "confidence": "MEDIUM"
+    },
+    {
+      "name": "Tata Motors",
+      "source": { "title": "ZoomInfo – Brakes India Profile", "url": "https://www.zoominfo.com/c/brakes-india-private-ltd/372642207" },
+      "confidence": "MEDIUM"
+    },
+    {
+      "name": "Global automotive OEMs (foundry exports — specific names not publicly disclosed)",
+      "source": { "title": "Brakes India – LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india" },
+      "confidence": "LOW"
+    }
+  ],
+  "sources": [
+    { "title": "Brakes India – LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india", "type": "Company Self-Disclosure" },
+    { "title": "Tata Nexarc – Brakes India Profile", "url": "https://www.tatanexarc.com/company/brakes-india-private-utn5815bra29rjq/", "type": "Business Directory" },
+    { "title": "TheCompanyCheck – MCA Data (ROC Chennai)", "url": "https://www.thecompanycheck.com/company/brakes-india-private-limited/U35999TN1962PTC004928", "type": "MCA Filing Aggregator" },
+    { "title": "ZoomInfo – Brakes India", "url": "https://www.zoominfo.com/c/brakes-india-private-ltd/372642207", "type": "Third-party Aggregator" },
+    { "title": "Wikipedia – TVS Group", "url": "https://en.wikipedia.org/wiki/TVS_Group", "type": "Reference" }
+  ],
+  "dataQuality": {
+    "overall": "SPARSE",
+    "notes": "Brakes India is unlisted and has no investor relations website. MCA filings are paywalled. Year-by-year financials (revenue, EBITDA, PAT, net debt) could not be verified from any publicly accessible source and are therefore not shown — reporting 'not found' rather than estimating. Product information is well-documented. Client names for the foundry export business are not publicly disclosed; Indian OEM clients (Maruti, Hyundai, Tata) are cited from secondary aggregators, not primary sources, and are therefore MEDIUM confidence."
+  }
+}

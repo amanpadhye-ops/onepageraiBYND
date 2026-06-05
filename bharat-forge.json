@@ -1,0 +1,132 @@
+{
+  "company": {
+    "name": "Bharat Forge Limited",
+    "ticker": "BHARATFORG",
+    "exchange": "NSE / BSE",
+    "headquarters": "Pune, Maharashtra, India",
+    "founded": "1961",
+    "website": "bharatforge.com"
+  },
+  "overview": {
+    "description": "Bharat Forge Limited is the flagship of the Kalyani Group and one of the world's largest forging companies, manufacturing safety-critical powertrain, chassis, and industrial components for automotive, defence, aerospace, and energy sectors across 9 manufacturing locations in 6 countries.",
+    "bullets": [
+      {
+        "text": "India's largest manufacturer and exporter of auto components; operates the world's largest single-location forging facility at Mundhwa, Pune.",
+        "source": { "title": "Bharat Forge – About Us", "url": "https://www.bharatforge.com/company/about-us" },
+        "confidence": "HIGH"
+      },
+      {
+        "text": "Two main verticals: Automotive (commercial vehicles, passenger vehicles) and Industrial (defence, aerospace, oil & gas, railways, energy). Auto share fell from 80% in FY07 to 58% in FY24 reflecting deliberate diversification.",
+        "source": { "title": "Business Standard – Aug 2024", "url": "https://www.business-standard.com/amp/markets/news/prospects-healthy-for-bharat-forge-but-stock-fully-valued-too-124080901720_1.html" },
+        "confidence": "HIGH"
+      },
+      {
+        "text": "Defence revenues scaled 4x YoY to ₹1,561 crore in FY24; executable defence order book stood at ₹5,192 crore as of March 31, 2024, providing 3-year revenue visibility.",
+        "source": { "title": "Bharat Forge Annual Report FY2024", "url": "https://www.bharatforge.com/AR2024/" },
+        "confidence": "HIGH"
+      },
+      {
+        "text": "Manufacturing footprint spans 9 locations in 6 countries — 2 in India, 3 in Germany, and 1 each in Sweden, Scotland, USA, and China.",
+        "source": { "title": "Kalyani Group – Bharat Forge Profile", "url": "http://www.kalyanigroup.com/bharat_forge.asp" },
+        "confidence": "HIGH"
+      },
+      {
+        "text": "Customers include the top 5 passenger car and top 5 commercial vehicle manufacturers globally; long-term agreements (LTAs) signed with key customers through 2035.",
+        "source": { "title": "ICICIdirect Research – Bharat Forge", "url": "https://www.icicidirect.com/research/equity/bharat-forge-ltd/5944" },
+        "confidence": "HIGH"
+      },
+      {
+        "text": "Promoter (Kalyani family) holding at ~44.1%; market cap approximately ₹93,572 crore as of recent data.",
+        "source": { "title": "Screener.in – BHARATFORG Consolidated", "url": "https://www.screener.in/company/BHARATFORG/consolidated/" },
+        "confidence": "HIGH"
+      },
+      {
+        "text": "FY2024 standalone: Revenue ₹8,969 crore (+18.4% YoY), EBITDA ₹2,469 crore (+28% YoY), PAT ₹1,425 crore (+36% YoY).",
+        "source": { "title": "Bharat Forge Annual Report FY2024", "url": "https://www.bharatforge.com/AR2024/" },
+        "confidence": "HIGH"
+      }
+    ]
+  },
+  "financials": {
+    "currency": "INR crore (consolidated)",
+    "note": "Sourced from Motilal Oswal and ICICIdirect analyst reports based on company BSE filings. FY = April–March.",
+    "years": ["FY21", "FY22", "FY23", "FY24"],
+    "rows": [
+      {
+        "label": "Revenue",
+        "values": [6336, 10461, 12910, 15682],
+        "isPercentage": false,
+        "source": { "title": "Motilal Oswal – Q2FY25 Results Review", "url": "https://images.assettype.com/bloombergquint/2024-11-16/dsw34lrq/Motilal_Oswal_Bharat_Forge_Q2FY25_Results_Review.pdf" },
+        "confidence": "HIGH"
+      },
+      {
+        "label": "Revenue Growth %",
+        "values": ["-21%", "+65%", "+23%", "+21%"],
+        "isPercentage": true,
+        "source": { "title": "Motilal Oswal – Q2FY25 Results Review", "url": "https://images.assettype.com/bloombergquint/2024-11-16/dsw34lrq/Motilal_Oswal_Bharat_Forge_Q2FY25_Results_Review.pdf" },
+        "confidence": "HIGH"
+      },
+      {
+        "label": "EBITDA",
+        "values": [862, 2016, 1768, 2558],
+        "isPercentage": false,
+        "source": { "title": "Motilal Oswal – Q2FY25 Results Review", "url": "https://images.assettype.com/bloombergquint/2024-11-16/dsw34lrq/Motilal_Oswal_Bharat_Forge_Q2FY25_Results_Review.pdf" },
+        "confidence": "HIGH"
+      },
+      {
+        "label": "EBITDA Margin %",
+        "values": ["13.6%", "19.3%", "13.7%", "16.3%"],
+        "isPercentage": true,
+        "source": { "title": "YES Securities – Q4FY24 Note", "url": "https://investmentguruindia.com/editorial/uploads/news-pdf/8d4a0907_Bharat-Forge-Ltd-Q4FY24.pdf" },
+        "confidence": "HIGH"
+      }
+    ]
+  },
+  "products": [
+    {
+      "name": "Crankshafts & Front Axle Beams",
+      "description": "Core CV forging products supplied globally. Bharat Forge was named Daimler AG's top-10 global supplier in 2016 specifically for crankshafts and front axle beams for trucks and buses.",
+      "source": { "title": "Autocar Professional – Daimler Award 2016", "url": "https://www.autocarpro.in/news-international/bharat-forge-daimler-ags-global-suppliers-2016-23792" },
+      "confidence": "HIGH"
+    },
+    {
+      "name": "Artillery Gun Systems (ATAGS)",
+      "description": "Advanced Towed Artillery Gun System manufactured through subsidiary Kalyani Strategic Systems Ltd (KSSL). Export order worth USD 155.5M secured for supply to a non-conflict zone.",
+      "source": { "title": "Bharat Forge Annual Report FY2024", "url": "https://www.bharatforge.com/AR2024/" },
+      "confidence": "HIGH"
+    },
+    {
+      "name": "Aluminium Forgings / EV Components",
+      "description": "Lightweight aluminium forged components for EV platforms; new greenfield aluminium forging capacity ramping up in North America.",
+      "source": { "title": "ICICIdirect Research – Bharat Forge", "url": "https://www.icicidirect.com/research/equity/bharat-forge-ltd/5944" },
+      "confidence": "HIGH"
+    },
+    {
+      "name": "Aerospace Forgings (Landing Gear & Jet Engine)",
+      "description": "Precision forgings for landing gear components and jet engine parts. Dedicated ring mill and machining line approved; capacities coming online FY2027.",
+      "source": { "title": "Business Standard – Q3 FY25 Results", "url": "https://www.business-standard.com/amp/markets/capital-market-news/bharat-forge-posts-8-4-yoy-fall-in-q3-pat-to-rs-346-crore-ebitda-margin-at-28-1-125021300716_1.html" },
+      "confidence": "HIGH"
+    }
+  ],
+  "clients": [
+    { "name": "Daimler AG", "source": { "title": "Autocar Professional – Daimler Award 2016", "url": "https://www.autocarpro.in/news-international/bharat-forge-daimler-ags-global-suppliers-2016-23792" }, "confidence": "HIGH" },
+    { "name": "Volkswagen / Audi / BMW", "source": { "title": "Bharat Forge – CDP AT Acquisition PR", "url": "https://www.bharatforge.com/media/press-release/2022/311/press_page" }, "confidence": "HIGH" },
+    { "name": "Ford & General Motors", "source": { "title": "Motownindia – Bharat Forge Make in India", "url": "https://www.motownindia.com/Bureau/Auto-Industry/2227/BHARAT-FORGE-LTD-Forging-a-Make-in-India-Global-Plan-PTharyan" }, "confidence": "HIGH" },
+    { "name": "Caterpillar & Cummins", "source": { "title": "Motownindia – Bharat Forge Make in India", "url": "https://www.motownindia.com/Bureau/Auto-Industry/2227/BHARAT-FORGE-LTD-Forging-a-Make-in-India-Global-Plan-PTharyan" }, "confidence": "HIGH" },
+    { "name": "Deutsche Bahn (German Railways)", "source": { "title": "Bharat Forge Europe – Homepage", "url": "https://bharatforge.eu/?lang=en" }, "confidence": "HIGH" },
+    { "name": "Volvo", "source": { "title": "Bharat Forge – CDP Acquisition PR", "url": "https://www.bharatforge.com/media/press-release/2022/317/press_page" }, "confidence": "HIGH" }
+  ],
+  "sources": [
+    { "title": "Bharat Forge Annual Report FY2024", "url": "https://www.bharatforge.com/AR2024/", "type": "Annual Report" },
+    { "title": "Bharat Forge – About Us (Official)", "url": "https://www.bharatforge.com/company/about-us", "type": "Official Website" },
+    { "title": "ICRA Ratings – March 2025", "url": "https://www.icra.in/Rating/GetRationalReportFilePdf?id=133577", "type": "Credit Rating Report" },
+    { "title": "CARE Ratings – December 2024", "url": "https://www.careratings.com/upload/CompanyFiles/PR/202412131217_Bharat_Forge_Limited.pdf", "type": "Credit Rating Report" },
+    { "title": "Motilal Oswal – Q2FY25 Results Review", "url": "https://images.assettype.com/bloombergquint/2024-11-16/dsw34lrq/Motilal_Oswal_Bharat_Forge_Q2FY25_Results_Review.pdf", "type": "Analyst Report" },
+    { "title": "Screener.in – BHARATFORG Consolidated", "url": "https://www.screener.in/company/BHARATFORG/consolidated/", "type": "Financial Database" },
+    { "title": "Autocar Professional – Daimler Supplier Award", "url": "https://www.autocarpro.in/news-international/bharat-forge-daimler-ags-global-suppliers-2016-23792", "type": "Trade Press" }
+  ],
+  "dataQuality": {
+    "overall": "RICH",
+    "notes": "Bharat Forge is a listed company with comprehensive public disclosures — annual reports, BSE/NSE filings, credit rating reports, and multiple analyst reports. All financial figures cross-verified across at least two independent sources. All clients verified via official press releases or trade publications. No figures inferred or estimated."
+  }
+}
