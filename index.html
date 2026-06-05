@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OnePager AI — by Bynd</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F5F6FA;color:#1a1a2e;min-height:100vh}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.fade-up{animation:fadeUp .4s ease both}
+
+/* SEARCH VIEW */
+#search-view{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px}
+.logo{font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:48px;letter-spacing:-.5px}
+.logo span{color:#2563EB}
+.search-card{background:#fff;border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.08),0 8px 24px rgba(0,0,0,.06);padding:32px;width:100%;max-width:560px}
+.search-label{display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:6px}
+.search-input{width:100%;padding:11px 14px;font-size:15px;border:1.5px solid #E5E7EB;border-radius:10px;outline:none;font-family:inherit;color:#111;background:#fff;transition:border-color .15s}
+.search-input:focus{border-color:#2563EB}
+.hint-input{width:100%;padding:9px 14px;font-size:13px;border:1.5px solid #E5E7EB;border-radius:10px;outline:none;font-family:inherit;color:#6B7280;background:#FAFAFA;margin-top:8px}
+.search-btn{width:100%;margin-top:16px;padding:12px;background:#2563EB;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .15s}
+.search-btn:disabled{background:#93C5FD;cursor:not-allowed}
+.examples{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{padding:5px 12px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:100px;font-size:12px;color:#1D4ED8;cursor:pointer;font-family:inherit}
+.features{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:560px;width:100%}
+.feat{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:16px;text-align:center}
+.feat-icon{font-size:20px;margin-bottom:6px}
+.feat-title{font-size:13px;font-weight:600;color:#111;margin-bottom:4px}
+.feat-desc{font-size:12px;color:#6B7280;line-height:1.5}
+
+/* RESULT VIEW */
+#result-view{display:none;min-height:100vh;background:#F5F6FA;padding-bottom:60px}
+.topbar{background:#fff;border-bottom:1px solid #E5E7EB;padding:12px 32px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:50}
+.back-btn{background:none;border:none;cursor:pointer;font-size:18px;color:#6B7280;padding:0 4px}
+.company-name{font-weight:700;font-size:16px}
+.company-sub{font-size:12px;color:#9CA3AF}
+.quality-pill{font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px}
+.quality-RICH{color:#065F46;background:#D1FAE5}
+.quality-MODERATE{color:#92400E;background:#FEF3C7}
+.quality-SPARSE{color:#991B1B;background:#FEE2E2}
+.section-title{padding:28px 32px 0;font-size:26px;font-weight:800;letter-spacing:-.5px}
+.grid-2{display:grid;grid-template-columns:1fr 420px;gap:20px;padding:20px 32px 0;align-items:start}
+.grid-half{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:20px 32px 0}
+.panel{border:1px solid #D1D5DB;border-radius:8px;overflow:hidden;background:#fff}
+.panel-header{background:#1E3A5F;color:#fff;font-weight:700;font-size:13px;padding:8px 14px;text-transform:uppercase;letter-spacing:.02em}
+.panel-body{padding:16px}
+.desc{font-size:13px;color:#374151;line-height:1.7;margin-bottom:14px;border-left:3px solid #2563EB;padding-left:10px;font-style:italic}
+.bullet{display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:8px}
+.bullet-dot{color:#2563EB;margin-top:4px;flex-shrink:0}
+.bullet-meta{display:flex;gap:8px;margin-top:4px;flex-wrap:wrap;align-items:center}
+.badge{font-size:10px;font-weight:600;padding:2px 6px;border-radius:4px;white-space:nowrap}
+.badge-HIGH{color:#065F46;background:#D1FAE5}
+.badge-MEDIUM{color:#92400E;background:#FEF3C7}
+.badge-LOW{color:#991B1B;background:#FEE2E2}
+.src-link{font-size:11px;color:#2563EB;text-decoration:none;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block}
+.fin-note{padding:8px 12px;background:#FFFBEB;border-bottom:1px solid #FDE68A;font-size:11px;color:#92400E}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{padding:8px 12px;font-size:11px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;border-bottom:1px solid #E5E7EB;background:#F9FAFB}
+th.left{text-align:left}th.right{text-align:right}th.center{text-align:center}
+td{padding:9px 12px;border-top:1px solid #F3F4F6}
+.row-key{font-weight:700;background:#F0F7FF}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+td.pct{text-align:right;color:#2563EB;font-variant-numeric:tabular-nums}
+td.null{text-align:right;color:#D1D5DB}
+td.center{text-align:center}
+.product-item{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #F3F4F6}
+.product-icon{width:36px;height:36px;border-radius:6px;background:#EFF6FF;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.product-name{font-weight:600;font-size:13px;margin-bottom:2px}
+.product-desc{font-size:12px;color:#6B7280;line-height:1.5;margin-bottom:4px}
+.clients-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.client-card{border:1px solid #E5E7EB;border-radius:8px;padding:12px 10px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.client-icon{width:40px;height:40px;border-radius:8px;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:18px}
+.client-name{font-size:12px;font-weight:600;text-align:center}
+.sparse-warn{margin:16px 32px 0;background:#FEF3C7;border:1px solid #FCD34D;border-radius:8px;padding:10px 16px;font-size:13px;color:#92400E}
+.sources-bar{margin:20px 32px 0;padding:16px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:8px}
+.sources-label{font-size:11px;font-weight:600;color:#9CA3AF;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px}
+.sources-list{display:flex;flex-wrap:wrap;gap:8px}
+.source-tag{font-size:11px;color:#2563EB;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:6px;padding:3px 8px;text-decoration:none}
+.not-found{padding:20px;text-align:center;font-size:13px;color:#9CA3AF;font-style:italic;border:1px dashed #E5E7EB;border-radius:8px;margin:8px}
+.example-outputs{margin-top:32px;display:flex;gap:12px;justify-content:center}
+.ex-btn{padding:8px 18px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:8px;font-size:13px;color:#1D4ED8;cursor:pointer;font-family:inherit;font-weight:500}
+</style>
+</head>
+<body>
+
+<!-- SEARCH VIEW -->
+<div id="search-view">
+  <div class="logo fade-up">OnePager<span>AI</span></div>
+  <div class="search-card fade-up">
+    <label class="search-label">Company name</label>
+    <input id="company-input" class="search-input" placeholder="e.g. Bharat Forge Limited" oninput="updateBtn()"/>
+    <input id="hint-input" class="hint-input" placeholder="Optional: ticker, website, or sector hint"/>
+    <button id="gen-btn" class="search-btn" onclick="generate()" disabled>Generate one-pager →</button>
+  </div>
+  <div class="examples fade-up" style="margin-top:16px">
+    <span style="font-size:12px;color:#9CA3AF;align-self:center">Try pre-loaded:</span>
+    <button class="chip" onclick="loadExample('bharat')">Bharat Forge Limited</button>
+    <button class="chip" onclick="loadExample('brakes')">Brakes India Private Limited</button>
+  </div>
+  <div class="features fade-up">
+    <div class="feat"><div class="feat-icon">🔍</div><div class="feat-title">Deep research</div><div class="feat-desc">8–12 live web searches per company</div></div>
+    <div class="feat"><div class="feat-icon">📎</div><div class="feat-title">Every claim cited</div><div class="feat-desc">Source URL on every bullet and figure</div></div>
+    <div class="feat"><div class="feat-icon">🛡️</div><div class="feat-title">Honest gaps</div><div class="feat-desc">Gaps shown clearly — nothing invented</div></div>
+  </div>
+</div>
+
+<!-- RESULT VIEW -->
+<div id="result-view"></div>
+
+<script>
+const OUTPUTS = {
+  bharat: {"company": {"name": "Bharat Forge Limited", "ticker": "BHARATFORG", "exchange": "NSE / BSE", "headquarters": "Pune, Maharashtra, India", "founded": "1961", "website": "bharatforge.com"}, "overview": {"description": "Bharat Forge Limited is the flagship of the Kalyani Group and one of the world's largest forging companies, manufacturing safety-critical powertrain, chassis, and industrial components for automotive, defence, aerospace, and energy sectors across 9 manufacturing locations in 6 countries.", "bullets": [{"text": "India's largest manufacturer and exporter of auto components; operates the world's largest single-location forging facility at Mundhwa, Pune.", "source": {"title": "Bharat Forge \u2013 About Us", "url": "https://www.bharatforge.com/company/about-us"}, "confidence": "HIGH"}, {"text": "Two main verticals: Automotive (commercial vehicles, passenger vehicles) and Industrial (defence, aerospace, oil & gas, railways, energy). Auto share fell from 80% in FY07 to 58% in FY24 reflecting deliberate diversification.", "source": {"title": "Business Standard \u2013 Aug 2024", "url": "https://www.business-standard.com/amp/markets/news/prospects-healthy-for-bharat-forge-but-stock-fully-valued-too-124080901720_1.html"}, "confidence": "HIGH"}, {"text": "Defence revenues scaled 4x YoY to \u20b91,561 crore in FY24; executable defence order book stood at \u20b95,192 crore as of March 31, 2024, providing 3-year revenue visibility.", "source": {"title": "Bharat Forge Annual Report FY2024", "url": "https://www.bharatforge.com/AR2024/"}, "confidence": "HIGH"}, {"text": "Manufacturing footprint spans 9 locations in 6 countries \u2014 2 in India, 3 in Germany, and 1 each in Sweden, Scotland, USA, and China.", "source": {"title": "Kalyani Group \u2013 Bharat Forge Profile", "url": "http://www.kalyanigroup.com/bharat_forge.asp"}, "confidence": "HIGH"}, {"text": "Customers include the top 5 passenger car and top 5 commercial vehicle manufacturers globally; long-term agreements (LTAs) signed with key customers through 2035.", "source": {"title": "ICICIdirect Research \u2013 Bharat Forge", "url": "https://www.icicidirect.com/research/equity/bharat-forge-ltd/5944"}, "confidence": "HIGH"}, {"text": "Promoter (Kalyani family) holding at ~44.1%; market cap approximately \u20b993,572 crore as of recent data.", "source": {"title": "Screener.in \u2013 BHARATFORG Consolidated", "url": "https://www.screener.in/company/BHARATFORG/consolidated/"}, "confidence": "HIGH"}, {"text": "FY2024 standalone: Revenue \u20b98,969 crore (+18.4% YoY), EBITDA \u20b92,469 crore (+28% YoY), PAT \u20b91,425 crore (+36% YoY).", "source": {"title": "Bharat Forge Annual Report FY2024", "url": "https://www.bharatforge.com/AR2024/"}, "confidence": "HIGH"}]}, "financials": {"currency": "INR crore (consolidated)", "note": "Sourced from Motilal Oswal and ICICIdirect analyst reports based on company BSE filings. FY = April\u2013March.", "years": ["FY21", "FY22", "FY23", "FY24"], "rows": [{"label": "Revenue", "values": [6336, 10461, 12910, 15682], "isPercentage": false, "source": {"title": "Motilal Oswal \u2013 Q2FY25 Results Review", "url": "https://images.assettype.com/bloombergquint/2024-11-16/dsw34lrq/Motilal_Oswal_Bharat_Forge_Q2FY25_Results_Review.pdf"}, "confidence": "HIGH"}, {"label": "Revenue Growth %", "values": ["-21%", "+65%", "+23%", "+21%"], "isPercentage": true, "source": {"title": "Motilal Oswal \u2013 Q2FY25 Results Review", "url": "https://images.assettype.com/bloombergquint/2024-11-16/dsw34lrq/Motilal_Oswal_Bharat_Forge_Q2FY25_Results_Review.pdf"}, "confidence": "HIGH"}, {"label": "EBITDA", "values": [862, 2016, 1768, 2558], "isPercentage": false, "source": {"title": "Motilal Oswal \u2013 Q2FY25 Results Review", "url": "https://images.assettype.com/bloombergquint/2024-11-16/dsw34lrq/Motilal_Oswal_Bharat_Forge_Q2FY25_Results_Review.pdf"}, "confidence": "HIGH"}, {"label": "EBITDA Margin %", "values": ["13.6%", "19.3%", "13.7%", "16.3%"], "isPercentage": true, "source": {"title": "YES Securities \u2013 Q4FY24 Note", "url": "https://investmentguruindia.com/editorial/uploads/news-pdf/8d4a0907_Bharat-Forge-Ltd-Q4FY24.pdf"}, "confidence": "HIGH"}]}, "products": [{"name": "Crankshafts & Front Axle Beams", "description": "Core CV forging products supplied globally. Bharat Forge was named Daimler AG's top-10 global supplier in 2016 specifically for crankshafts and front axle beams for trucks and buses.", "source": {"title": "Autocar Professional \u2013 Daimler Award 2016", "url": "https://www.autocarpro.in/news-international/bharat-forge-daimler-ags-global-suppliers-2016-23792"}, "confidence": "HIGH"}, {"name": "Artillery Gun Systems (ATAGS)", "description": "Advanced Towed Artillery Gun System manufactured through subsidiary Kalyani Strategic Systems Ltd (KSSL). Export order worth USD 155.5M secured for supply to a non-conflict zone.", "source": {"title": "Bharat Forge Annual Report FY2024", "url": "https://www.bharatforge.com/AR2024/"}, "confidence": "HIGH"}, {"name": "Aluminium Forgings / EV Components", "description": "Lightweight aluminium forged components for EV platforms; new greenfield aluminium forging capacity ramping up in North America.", "source": {"title": "ICICIdirect Research \u2013 Bharat Forge", "url": "https://www.icicidirect.com/research/equity/bharat-forge-ltd/5944"}, "confidence": "HIGH"}, {"name": "Aerospace Forgings (Landing Gear & Jet Engine)", "description": "Precision forgings for landing gear components and jet engine parts. Dedicated ring mill and machining line approved; capacities coming online FY2027.", "source": {"title": "Business Standard \u2013 Q3 FY25 Results", "url": "https://www.business-standard.com/amp/markets/capital-market-news/bharat-forge-posts-8-4-yoy-fall-in-q3-pat-to-rs-346-crore-ebitda-margin-at-28-1-125021300716_1.html"}, "confidence": "HIGH"}], "clients": [{"name": "Daimler AG", "source": {"title": "Autocar Professional \u2013 Daimler Award 2016", "url": "https://www.autocarpro.in/news-international/bharat-forge-daimler-ags-global-suppliers-2016-23792"}, "confidence": "HIGH"}, {"name": "Volkswagen / Audi / BMW", "source": {"title": "Bharat Forge \u2013 CDP AT Acquisition PR", "url": "https://www.bharatforge.com/media/press-release/2022/311/press_page"}, "confidence": "HIGH"}, {"name": "Ford & General Motors", "source": {"title": "Motownindia \u2013 Bharat Forge Make in India", "url": "https://www.motownindia.com/Bureau/Auto-Industry/2227/BHARAT-FORGE-LTD-Forging-a-Make-in-India-Global-Plan-PTharyan"}, "confidence": "HIGH"}, {"name": "Caterpillar & Cummins", "source": {"title": "Motownindia \u2013 Bharat Forge Make in India", "url": "https://www.motownindia.com/Bureau/Auto-Industry/2227/BHARAT-FORGE-LTD-Forging-a-Make-in-India-Global-Plan-PTharyan"}, "confidence": "HIGH"}, {"name": "Deutsche Bahn (German Railways)", "source": {"title": "Bharat Forge Europe \u2013 Homepage", "url": "https://bharatforge.eu/?lang=en"}, "confidence": "HIGH"}, {"name": "Volvo", "source": {"title": "Bharat Forge \u2013 CDP Acquisition PR", "url": "https://www.bharatforge.com/media/press-release/2022/317/press_page"}, "confidence": "HIGH"}], "sources": [{"title": "Bharat Forge Annual Report FY2024", "url": "https://www.bharatforge.com/AR2024/", "type": "Annual Report"}, {"title": "Bharat Forge \u2013 About Us (Official)", "url": "https://www.bharatforge.com/company/about-us", "type": "Official Website"}, {"title": "ICRA Ratings \u2013 March 2025", "url": "https://www.icra.in/Rating/GetRationalReportFilePdf?id=133577", "type": "Credit Rating Report"}, {"title": "CARE Ratings \u2013 December 2024", "url": "https://www.careratings.com/upload/CompanyFiles/PR/202412131217_Bharat_Forge_Limited.pdf", "type": "Credit Rating Report"}, {"title": "Motilal Oswal \u2013 Q2FY25 Results Review", "url": "https://images.assettype.com/bloombergquint/2024-11-16/dsw34lrq/Motilal_Oswal_Bharat_Forge_Q2FY25_Results_Review.pdf", "type": "Analyst Report"}, {"title": "Screener.in \u2013 BHARATFORG Consolidated", "url": "https://www.screener.in/company/BHARATFORG/consolidated/", "type": "Financial Database"}, {"title": "Autocar Professional \u2013 Daimler Supplier Award", "url": "https://www.autocarpro.in/news-international/bharat-forge-daimler-ags-global-suppliers-2016-23792", "type": "Trade Press"}], "dataQuality": {"overall": "RICH", "notes": "Bharat Forge is a listed company with comprehensive public disclosures \u2014 annual reports, BSE/NSE filings, credit rating reports, and multiple analyst reports. All financial figures cross-verified across at least two independent sources. All clients verified via official press releases or trade publications. No figures inferred or estimated."}},
+  brakes: {"company": {"name": "Brakes India Private Limited", "ticker": null, "exchange": "Unlisted (Private Limited)", "headquarters": "Chennai, Tamil Nadu, India", "founded": "1962", "website": "brakesindia.com"}, "overview": {"description": "Brakes India Private Limited is India's largest brake system supplier and a global ferrous castings manufacturer, part of the TVS Group (TSF Group). Founded in 1962 and headquartered in Chennai, it serves automotive OEMs across India and exports castings globally.", "bullets": [{"text": "Established in 1962; promoted by the TSF Group (TVS\u2013Santhanam family), whose heritage dates to 1936. Largest brake system supplier in India.", "source": {"title": "Brakes India \u2013 LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india"}, "confidence": "HIGH"}, {"text": "Operates three divisions: Brake Division (braking systems for passenger cars, CVs, tractors), Foundry Division (ferrous castings for global OEMs), and Polymer Division.", "source": {"title": "Tata Nexarc \u2013 Brakes India Profile", "url": "https://www.tatanexarc.com/company/brakes-india-private-utn5815bra29rjq/"}, "confidence": "HIGH"}, {"text": "Foundry Division at Sholinghur (120km from Chennai) produces over 200,000 MT/year of safety-critical ferrous castings; also operates a foundry in Oman. Won the prestigious Deming Application Prize for TQM.", "source": {"title": "Brakes India \u2013 LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india"}, "confidence": "HIGH"}, {"text": "Revenues exceed INR 6,500 crore per company's own LinkedIn disclosure; target of INR 10,000 crore turnover cited in press reports.", "source": {"title": "Brakes India \u2013 LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india"}, "confidence": "MEDIUM"}, {"text": "Exports account for approximately 23% of total revenues across brake and foundry divisions, per CRISIL.", "source": {"title": "ZoomInfo \u2013 Brakes India Profile (citing CRISIL)", "url": "https://www.zoominfo.com/c/brakes-india-private-ltd/372642207"}, "confidence": "MEDIUM"}, {"text": "Sells automotive spare parts under the TVS-Girling, TVS-Apache, and TVS-Sprinter brands in the Indian aftermarket.", "source": {"title": "Brakes India \u2013 LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india"}, "confidence": "HIGH"}, {"text": "Employs approximately 9,588 people; CIN U35999TN1962PTC004928; balance sheet last publicly filed with ROC Chennai for FY2023 (most recent available).", "source": {"title": "TheCompanyCheck \u2013 Brakes India MCA Data", "url": "https://www.thecompanycheck.com/company/brakes-india-private-limited/U35999TN1962PTC004928"}, "confidence": "HIGH"}]}, "financials": {"currency": "INR crore", "note": "Brakes India is unlisted with no investor relations site. MCA filings are paywalled. The only available figures come from company's own LinkedIn (revenue >\u20b96,500 cr, unaudited/undated) and third-party aggregators of uncertain methodology. No audited annual figures are publicly accessible. The table below reflects what could be verified \u2014 year-by-year breakdowns could NOT be confirmed and are not shown.", "years": ["FY21", "FY22", "FY23", "FY24"], "rows": [{"label": "Revenue", "values": [null, null, null, "~\u20b96,500 cr+"], "isPercentage": false, "source": {"title": "Brakes India LinkedIn (self-disclosed)", "url": "https://in.linkedin.com/company/brakes-india"}, "confidence": "LOW"}, {"label": "Revenue Growth %", "values": [null, null, null, null], "isPercentage": true, "source": null, "confidence": null}, {"label": "EBITDA", "values": [null, null, null, null], "isPercentage": false, "source": null, "confidence": null}, {"label": "EBITDA Margin %", "values": [null, null, null, null], "isPercentage": true, "source": null, "confidence": null}, {"label": "Net Debt", "values": [null, null, null, null], "isPercentage": false, "source": null, "confidence": null}]}, "products": [{"name": "Disc & Drum Brake Systems (Passenger Vehicles)", "description": "Calipers, actuation systems, drum brakes, ABS, brake valves, hose, and brake fluid for passenger cars. Supplied to Indian automotive OEMs.", "source": {"title": "Tata Nexarc \u2013 Brakes India Profile", "url": "https://www.tatanexarc.com/company/brakes-india-private-utn5815bra29rjq/"}, "confidence": "HIGH"}, {"name": "Commercial Vehicle Brakes (S-Cam, Hydraulic, Disc, EMR)", "description": "S-cam brakes, hydraulic drum brakes, disc brakes, and Electro Magnetic Retarders for trucks, buses, and CVs.", "source": {"title": "Tata Nexarc \u2013 Brakes India Profile", "url": "https://www.tatanexarc.com/company/brakes-india-private-utn5815bra29rjq/"}, "confidence": "HIGH"}, {"name": "Ferrous Castings (Grey Iron & SG Iron)", "description": "Permanent mould grey iron and SG iron castings manufactured via Disamatic high-pressure moulding process at Sholinghur and Oman facilities. Over 200,000 MT annual capacity.", "source": {"title": "Brakes India \u2013 LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india"}, "confidence": "HIGH"}, {"name": "Aftermarket Spare Parts (TVS-Girling / TVS-Apache / TVS-Sprinter)", "description": "Branded brake components sold through the Indian automotive aftermarket under three TVS sub-brands.", "source": {"title": "Brakes India \u2013 LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india"}, "confidence": "HIGH"}], "clients": [{"name": "Maruti Suzuki", "source": {"title": "ZoomInfo \u2013 Brakes India Profile", "url": "https://www.zoominfo.com/c/brakes-india-private-ltd/372642207"}, "confidence": "MEDIUM"}, {"name": "Hyundai India", "source": {"title": "ZoomInfo \u2013 Brakes India Profile", "url": "https://www.zoominfo.com/c/brakes-india-private-ltd/372642207"}, "confidence": "MEDIUM"}, {"name": "Tata Motors", "source": {"title": "ZoomInfo \u2013 Brakes India Profile", "url": "https://www.zoominfo.com/c/brakes-india-private-ltd/372642207"}, "confidence": "MEDIUM"}, {"name": "Global automotive OEMs (foundry exports \u2014 specific names not publicly disclosed)", "source": {"title": "Brakes India \u2013 LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india"}, "confidence": "LOW"}], "sources": [{"title": "Brakes India \u2013 LinkedIn Company Page", "url": "https://in.linkedin.com/company/brakes-india", "type": "Company Self-Disclosure"}, {"title": "Tata Nexarc \u2013 Brakes India Profile", "url": "https://www.tatanexarc.com/company/brakes-india-private-utn5815bra29rjq/", "type": "Business Directory"}, {"title": "TheCompanyCheck \u2013 MCA Data (ROC Chennai)", "url": "https://www.thecompanycheck.com/company/brakes-india-private-limited/U35999TN1962PTC004928", "type": "MCA Filing Aggregator"}, {"title": "ZoomInfo \u2013 Brakes India", "url": "https://www.zoominfo.com/c/brakes-india-private-ltd/372642207", "type": "Third-party Aggregator"}, {"title": "Wikipedia \u2013 TVS Group", "url": "https://en.wikipedia.org/wiki/TVS_Group", "type": "Reference"}], "dataQuality": {"overall": "SPARSE", "notes": "Brakes India is unlisted and has no investor relations website. MCA filings are paywalled. Year-by-year financials (revenue, EBITDA, PAT, net debt) could not be verified from any publicly accessible source and are therefore not shown \u2014 reporting 'not found' rather than estimating. Product information is well-documented. Client names for the foundry export business are not publicly disclosed; Indian OEM clients (Maruti, Hyundai, Tata) are cited from secondary aggregators, not primary sources, and are therefore MEDIUM confidence."}}
+};
+
+function updateBtn(){
+  document.getElementById('gen-btn').disabled = !document.getElementById('company-input').value.trim();
+}
+
+function loadExample(key){
+  document.getElementById('search-view').style.display='none';
+  renderResult(OUTPUTS[key]);
+}
+
+function generate(){
+  const name = document.getElementById('company-input').value.trim().toLowerCase();
+  if(name.includes('bharat forge')){loadExample('bharat');return;}
+  if(name.includes('brakes india')){loadExample('brakes');return;}
+  // Show note that live generation requires backend
+  alert('Live generation requires the backend server with an Anthropic API key.\n\nTry the pre-loaded examples: Bharat Forge or Brakes India.');
+}
+
+function badge(level){
+  if(!level) return '';
+  const labels={HIGH:'● HIGH',MEDIUM:'◐ MED',LOW:'○ LOW'};
+  return `<span class="badge badge-${level}">${labels[level]||level}</span>`;
+}
+
+function srcLink(src){
+  if(!src||!src.url) return '';
+  return `<a class="src-link" href="${src.url}" target="_blank" rel="noopener">↗ ${src.title||'Source'}</a>`;
+}
+
+function renderResult(data){
+  const {company,overview,financials,products,clients,sources,dataQuality} = data;
+  const r = document.getElementById('result-view');
+
+  let html = `
+  <div class="topbar">
+    <button class="back-btn" onclick="goBack()">←</button>
+    <div style="flex:1">
+      <div class="company-name">${company.name}</div>
+      <div class="company-sub">${[company.ticker,company.exchange,company.headquarters].filter(Boolean).join(' · ')}</div>
+    </div>
+    <span class="quality-pill quality-${dataQuality?.overall||'MODERATE'}">Data: ${dataQuality?.overall||'?'}</span>
+    <button onclick="window.print()" style="background:#2563EB;color:#fff;border:none;border-radius:8px;padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit">Export PDF</button>
+  </div>`;
+
+  if(dataQuality?.overall==='SPARSE'){
+    html+=`<div class="sparse-warn">⚠ <strong>Limited public data available.</strong> ${dataQuality.notes||''}</div>`;
+  }
+
+  html+=`<div class="section-title">${company.name} — Company Overview</div>`;
+
+  // Overview + Financials
+  html+=`<div class="grid-2">`;
+
+  // Overview panel
+  html+=`<div class="panel"><div class="panel-header">Company Overview</div><div class="panel-body">`;
+  if(overview?.description) html+=`<p class="desc">${overview.description}</p>`;
+  (overview?.bullets||[]).forEach(b=>{
+    html+=`<div class="bullet"><span class="bullet-dot">▪</span><div><span>${b.text}</span><div class="bullet-meta">${badge(b.confidence)}${srcLink(b.source)}</div></div></div>`;
+  });
+  if(!overview?.bullets?.length) html+=`<div class="not-found">Not found in available public sources</div>`;
+  html+=`</div></div>`;
+
+  // Financials panel
+  html+=`<div class="panel"><div class="panel-header">Financial Overview${financials?.currency?' ('+financials.currency+')':''}</div>`;
+  if(financials?.note) html+=`<div class="fin-note">ℹ ${financials.note}</div>`;
+  if(financials?.rows?.length){
+    html+=`<table><thead><tr><th class="left">Particulars</th>${(financials.years||[]).map(y=>`<th class="right">${y}</th>`).join('')}<th class="center">Conf.</th></tr></thead><tbody>`;
+    financials.rows.forEach(row=>{
+      const isKey=['Revenue','EBITDA','Net Debt'].some(k=>row.label?.includes(k));
+      html+=`<tr class="${isKey?'row-key':''}"><td>${row.label}${row.source?`<br>${srcLink(row.source)}`:''}`;
+      html+=`</td>`;
+      (row.values||[]).forEach(v=>{
+        const cls = v===null?'null':row.isPercentage?'pct':'num';
+        html+=`<td class="${cls}">${v===null?'—':v}</td>`;
+      });
+      html+=`<td class="center">${badge(row.confidence)}</td></tr>`;
+    });
+    html+=`</tbody></table>`;
+  } else {
+    html+=`<div class="not-found">Financial data not found in available public sources</div>`;
+  }
+  html+=`</div>`;
+
+  html+=`</div>`; // end grid-2
+
+  // Products + Clients
+  html+=`<div class="grid-half">`;
+
+  // Products
+  html+=`<div class="panel"><div class="panel-header">Select Products</div><div class="panel-body">`;
+  (products||[]).forEach(p=>{
+    html+=`<div class="product-item"><div class="product-icon">📦</div><div><div class="product-name">${p.name}</div><div class="product-desc">${p.description}</div><div class="bullet-meta">${badge(p.confidence)}${srcLink(p.source)}</div></div></div>`;
+  });
+  if(!products?.length) html+=`<div class="not-found">Not found in available public sources</div>`;
+  html+=`</div></div>`;
+
+  // Clients
+  html+=`<div class="panel"><div class="panel-header">Select Clients</div><div class="panel-body">`;
+  if(clients?.length){
+    html+=`<div class="clients-grid">`;
+    clients.forEach(c=>{
+      html+=`<div class="client-card"><div class="client-icon">🏢</div><div class="client-name">${c.name}</div><div style="display:flex;flex-direction:column;align-items:center;gap:2px">${badge(c.confidence)}${srcLink(c.source)}</div></div>`;
+    });
+    html+=`</div>`;
+  } else {
+    html+=`<div class="not-found">Not found in available public sources</div>`;
+  }
+  html+=`</div></div>`;
+
+  html+=`</div>`; // end grid-half
+
+  // Sources
+  if(sources?.length){
+    html+=`<div class="sources-bar"><div class="sources-label">All sources consulted</div><div class="sources-list">`;
+    sources.forEach(s=>{ html+=`<a class="source-tag" href="${s.url}" target="_blank">${s.title}</a>`; });
+    html+=`</div></div>`;
+  }
+
+  r.innerHTML = html;
+  r.style.display = 'block';
+}
+
+function goBack(){
+  document.getElementById('result-view').style.display='none';
+  document.getElementById('search-view').style.display='flex';
+}
+</script>
+</body>
+</html>
